@@ -11,7 +11,7 @@ QT_LIBS := /usr/lib/x86_64-linux-gnu/libQt6Widgets.so /usr/lib/x86_64-linux-gnu/
 
 DEFINES = -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CXXFLAGS := -std=c++17 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INC := -Iinclude $(QT_INC)
+INC := -Iinclude $(QT_INC) -Ilib/tinyxml2
 
 DEBUG := 0
 
@@ -23,7 +23,7 @@ else
 	DEFINES += -DQT_NO_DEBUG
 endif
 
-SRC_DIRS := src
+SRC_DIRS := src lib/tinyxml2
 CPP_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp))
 H_FILES := $(foreach dir,include,$(wildcard $(dir)/*.h))
 MOC_FILES := $(subst include,src,$(H_FILES:.h=.moc.cpp))
@@ -44,7 +44,7 @@ clean:
 	rm -rf build $(OUTPUT)
 
 format:
-	clang-format-18 -i $(H_FILES) $(CPP_FILES)
+	clang-format-18 -i $(H_FILES) $(foreach dir,src,$(wildcard $(dir)/*.cpp))
 
 ui:
 	$(UIC) -o include/UiMainWindow.h res/UiMainWindow.ui
@@ -58,6 +58,9 @@ src/%.moc.cpp: include/%.h
 	$(MOC) $(INC) $< -o $@
 
 build/src/%.o: src/%.cpp
+	$(CXX) $(CXXFLAGS) $(OPTFLAGS) $(INC) -c $(OUTPUT_OPTION) $<
+
+build/lib/%.o: lib/%.cpp
 	$(CXX) $(CXXFLAGS) $(OPTFLAGS) $(INC) -c $(OUTPUT_OPTION) $<
 
 $(OUTPUT): $(O_FILES)

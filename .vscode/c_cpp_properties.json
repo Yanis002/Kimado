@@ -4,6 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
+                "${workspaceFolder}/lib/tinyxml2",
                 "/usr/include/x86_64-linux-gnu/qt6/**"
             ],
             "defines": [],

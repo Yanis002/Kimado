@@ -28,50 +28,48 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MainWindow
-{
-public:
-    QWidget *centralwidget;
-    QTabWidget *tabWidget;
-    QWidget *actorTab;
-    QGroupBox *paramGroup;
-    QComboBox *actorTypeList;
-    QLabel *actorTypeLabel;
-    QWidget *formLayoutWidget;
-    QFormLayout *paramLayout;
-    QWidget *gridLayoutWidget;
-    QGridLayout *paramGrid;
-    QPushButton *rotYLabel;
-    QLineEdit *rotYBox;
-    QPushButton *rotZLabel;
-    QLineEdit *rotZBox;
-    QPushButton *paramLabel;
-    QLineEdit *rotXBox;
-    QLineEdit *paramBox;
-    QPushButton *rotXLabel;
-    QCheckBox *evalParamBox;
-    QCheckBox *ignoreTiedBox;
-    QGroupBox *groupBox;
-    QWidget *gridLayoutWidget_2;
-    QGridLayout *optionsGrid;
-    QPushButton *editActorBtn;
-    QPushButton *openActorFileBtn;
-    QPushButton *saveActorFileBtn;
-    QPushButton *addActorBtn;
-    QPushButton *deleteActorBtn;
-    QPushButton *deleteAllBtn;
-    QGroupBox *searchGroup;
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *searchLayout;
-    QLineEdit *searchBox;
-    QListWidget *actorFoundBox;
-    QComboBox *actorCategoryList;
-    QLabel *actorFoundLabel;
-    QWidget *flagTab;
-    QWidget *statTab;
+class Ui_MainWindow {
+  public:
+    QWidget* centralwidget;
+    QTabWidget* tabWidget;
+    QWidget* actorTab;
+    QGroupBox* paramGroup;
+    QComboBox* actorTypeList;
+    QLabel* actorTypeLabel;
+    QWidget* formLayoutWidget;
+    QFormLayout* paramLayout;
+    QWidget* gridLayoutWidget;
+    QGridLayout* paramGrid;
+    QPushButton* rotYLabel;
+    QLineEdit* rotYBox;
+    QPushButton* rotZLabel;
+    QLineEdit* rotZBox;
+    QPushButton* paramLabel;
+    QLineEdit* rotXBox;
+    QLineEdit* paramBox;
+    QPushButton* rotXLabel;
+    QCheckBox* evalParamBox;
+    QCheckBox* ignoreTiedBox;
+    QGroupBox* groupBox;
+    QWidget* gridLayoutWidget_2;
+    QGridLayout* optionsGrid;
+    QPushButton* editActorBtn;
+    QPushButton* openActorFileBtn;
+    QPushButton* saveActorFileBtn;
+    QPushButton* addActorBtn;
+    QPushButton* deleteActorBtn;
+    QPushButton* deleteAllBtn;
+    QGroupBox* searchGroup;
+    QWidget* verticalLayoutWidget;
+    QVBoxLayout* searchLayout;
+    QLineEdit* searchBox;
+    QListWidget* actorFoundBox;
+    QComboBox* actorCategoryList;
+    QLabel* actorFoundLabel;
+    QWidget* flagTab;
+    QWidget* statTab;
 
-    void setupUi(QMainWindow *MainWindow)
-    {
+    void setupUi(QMainWindow* MainWindow) {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(571, 504);
@@ -240,7 +238,7 @@ public:
         searchGroup = new QGroupBox(actorTab);
         searchGroup->setObjectName(QString::fromUtf8("searchGroup"));
         searchGroup->setGeometry(QRect(10, 10, 221, 311));
-        searchGroup->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
+        searchGroup->setAlignment(Qt::AlignLeading | Qt::AlignLeft | Qt::AlignTop);
         searchGroup->setFlat(false);
         searchGroup->setCheckable(false);
         verticalLayoutWidget = new QWidget(searchGroup);
@@ -286,12 +284,10 @@ public:
         paramLabel->setDefault(false);
         rotXLabel->setDefault(false);
 
-
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow)
-    {
+    void retranslateUi(QMainWindow* MainWindow) {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Cole - OoT Mod Helper", nullptr));
         paramGroup->setTitle(QCoreApplication::translate("MainWindow", "Parameters", nullptr));
         actorTypeLabel->setText(QCoreApplication::translate("MainWindow", "Actor Type", nullptr));
@@ -317,15 +313,16 @@ public:
 #endif // QT_CONFIG(whatsthis)
         searchBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search...", nullptr));
         actorFoundLabel->setText(QCoreApplication::translate("MainWindow", "Found: 0", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(actorTab), QCoreApplication::translate("MainWindow", "Actors", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(actorTab),
+                              QCoreApplication::translate("MainWindow", "Actors", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(flagTab), QCoreApplication::translate("MainWindow", "Flags", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(statTab), QCoreApplication::translate("MainWindow", "Statistics", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(statTab),
+                              QCoreApplication::translate("MainWindow", "Statistics", nullptr));
     } // retranslateUi
-
 };
 
 namespace Ui {
-    class MainWindow: public Ui_MainWindow {};
+class MainWindow : public Ui_MainWindow {};
 } // namespace Ui
 
 QT_END_NAMESPACE
